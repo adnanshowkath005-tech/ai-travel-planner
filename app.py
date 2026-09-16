@@ -335,7 +335,7 @@ if submit:
                 file_name=f"{destination.lower().replace(' ', '_')}_itinerary.pdf",
                 mime="application/pdf"
             )
-              if hasattr(itinerary, 'weather_forecast') and itinerary.weather_forecast:
+            if hasattr(itinerary, 'weather_forecast') and itinerary.weather_forecast:
             st.subheader("🌦️ Weather Forecast & Packing Advice")
             w = itinerary.weather_forecast
             col1, col2 = st.columns(2)
