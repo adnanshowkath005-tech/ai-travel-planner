@@ -2,7 +2,8 @@ import os
 import streamlit as st
 from generator import generate_itinerary
 from schemas import ItineraryRequest, BudgetLevel, Interest
-from pdf_generator import create_itinerary_pdf
+
+
 # Page Config
 st.set_page_config(
     page_title="AI Travel Planner",
@@ -331,7 +332,8 @@ if submit:
             st.divider()
             
             # Download Button
-            pdf_data = create_itinerary_pdf(itinerary)
+    from pdf_generator import create_itinerary_pdf
+    pdf_data = create_itinerary_pdf(itinerary)
             st.download_button(
                 label="📄 Download Itinerary (PDF)",
                 data=pdf_data,
