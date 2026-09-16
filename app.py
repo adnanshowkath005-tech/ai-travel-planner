@@ -4,7 +4,6 @@ from generator import generate_itinerary
 from schemas import ItineraryRequest, BudgetLevel
 from pdf_generator import create_itinerary_pdf
 
-# Page Config
 st.set_page_config(
     page_title="AI Travel Planner",
     page_icon="✈️",
@@ -17,7 +16,6 @@ if "GEMINI_API_KEY" in st.secrets:
 elif "GOOGLE_API_KEY" in st.secrets:
     os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 
-# Custom CSS
 st.markdown("""
 <style>
     .transport-badge {
@@ -36,7 +34,6 @@ st.markdown("""
 st.title("✈️ AI Travel Planner")
 st.markdown("Generate a personalized travel itinerary powered by AI.")
 
-# Sidebar Inputs
 with st.sidebar:
     st.header("Trip Details")
     destination = st.text_input("Destination", "Thiruvananthapuram, Kerala, India")
@@ -53,7 +50,6 @@ with st.sidebar:
     
     generate_btn = st.button("✨ Generate Itinerary", type="primary", use_container_width=True)
 
-# Main Content Logic
 if generate_btn:
     with st.spinner("Generating your custom itinerary..."):
         try:
@@ -71,7 +67,6 @@ if generate_btn:
         except Exception as e:
             st.error(f"Error generating itinerary: {e}")
 
-# Display Itinerary if available in session state
 if "itinerary" in st.session_state:
     itinerary = st.session_state["itinerary"]
     destination = st.session_state.get("destination", destination)
@@ -84,7 +79,6 @@ if "itinerary" in st.session_state:
         
     st.divider()
 
-    # Day Tabs
     day_tabs = st.tabs([f"Day {day.day_number}" for day in itinerary.days])
     for tab, day in zip(day_tabs, itinerary.days):
         with tab:
@@ -99,7 +93,6 @@ if "itinerary" in st.session_state:
 
     st.divider()
 
-    # Download Button
     pdf_data = create_itinerary_pdf(itinerary)
     st.download_button(
         label="📥 Download Itinerary (PDF)",
