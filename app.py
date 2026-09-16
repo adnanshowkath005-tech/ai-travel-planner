@@ -330,23 +330,15 @@ if submit:
                                     st.caption(f"Estimated Cost: {activity.estimated_cost}")
 
             st.divider()
-            
-            st.download_button(
-                label="📄 Download Itinerary (PDF)",
-                data=pdf_data,
-                file_name=f"{destination.lower().replace(' ', '_')}_itinerary.pdf",
-                mime="application/pdf"
-            )
-            if hasattr(itinerary, 'weather_forecast') and itinerary.weather_forecast:
-             st.subheader("🌦️ Weather Forecast & Packing Advice")
-             w = itinerary.weather_forecast
-             col1, col2 = st.columns(2)
-             with col1:
-                 st.metric("Expected Temp", w.expected_temp_range)
-             with col2:
-                 st.info(f"**Climate Summary:** {w.climate_summary}")
-             st.success(f"**Clothing & Packing Advice:** {w.clothing_advice}")
-             st.divider()
-
-        except Exception as e:
-            st.error(f"Error generating itinerary: {e}")
+     # Download Button
+    try:
+        from pdf_generator import create_itinerary_pdf
+        pdf_data = create_itinerary_pdf(itinerary)
+        st.download_button(
+            label="📥 Download Itinerary (PDF)",
+            data=pdf_data,
+            file_name=f"{destination.lower().replace(' ', '_')}_itinerary.pdf",
+            mime="application/pdf"
+        )
+    except Exception as e:
+        st.error(f"PDF download unavailable: {e}")
