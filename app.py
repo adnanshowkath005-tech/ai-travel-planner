@@ -329,8 +329,9 @@ if submit:
                                 if hasattr(activity, 'estimated_cost'):
                                     st.caption(f"Estimated Cost: {activity.estimated_cost}")
 
-            st.divider()
-     # Download Button
+          st.divider()
+
+    # Download Button
     try:
         from pdf_generator import create_itinerary_pdf
         pdf_data = create_itinerary_pdf(itinerary)
