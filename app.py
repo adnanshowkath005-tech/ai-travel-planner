@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from generator import generate_itinerary
 from schemas import ItineraryRequest, BudgetLevel, Interest
