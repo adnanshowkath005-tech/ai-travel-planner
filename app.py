@@ -332,14 +332,14 @@ if submit:
                                 st.divider()
 
     # Download Button
-    try:
-        from pdf_generator import create_itinerary_pdf
-        pdf_data = create_itinerary_pdf(itinerary)
-        st.download_button(
-            label="📥 Download Itinerary (PDF)",
-            data=pdf_data,
-            file_name=f"{destination.lower().replace(' ', '_')}_itinerary.pdf",
-            mime="application/pdf"
-        )
-    except Exception as e:
-        st.error(f"PDF download unavailable: {e}")
+        try:
+            from pdf_generator import create_itinerary_pdf
+            pdf_data = create_itinerary_pdf(itinerary)
+            st.download_button(
+                label="📥 Download Itinerary (PDF)",
+                data=pdf_data,
+                file_name=f"{destination.lower().replace(' ', '_')}_itinerary.pdf",
+                mime="application/pdf"
+            )
+        except Exception as e:
+            st.error(f"PDF download unavailable: {e}")
