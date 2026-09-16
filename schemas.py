@@ -34,15 +34,15 @@ class ItineraryRequest(BaseModel):
     budget: BudgetLevel
     interests: List[Interest]
     must_see_spots: Optional[List[str]] = None
-
+    
+class WeatherInfo(BaseModel):
+    expected_temp_range: str = Field(description="Expected temperature range for the destination")
+    climate_summary: str = Field(description="Brief summary of the weather/climate")
+    clothing_advice: str = Field(description="Packing and clothing recommendations based on weather")
+    
 class ItineraryResponse(BaseModel):
     destination: str
     duration_days: int
     estimated_cost: str
     days: List[DayPlan]
     weather_forecast: Optional[WeatherInfo] = Field(default=None, description="Weather forecast and clothing recommendations")
-    class WeatherInfo(BaseModel):
-    expected_temp_range: str = Field(description="Expected temperature range for the destination")
-    climate_summary: str = Field(description="Brief summary of the weather/climate")
-    clothing_advice: str = Field(description="Packing and clothing recommendations based on weather")
-    clothing_advice: str = Field(description="Packing and clothing recommendations based on weather")
