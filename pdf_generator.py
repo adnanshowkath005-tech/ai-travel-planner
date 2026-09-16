@@ -68,4 +68,4 @@ def create_itinerary_pdf(itinerary: ItineraryResponse) -> bytes:
 
         pdf.ln(4)
 
-    return bytes(pdf.output())
+   return pdf.output()
