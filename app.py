@@ -329,7 +329,7 @@ if submit:
                                 if hasattr(activity, 'estimated_cost'):
                                     st.caption(f"Estimated Cost: {activity.estimated_cost}")
 
-          st.divider()
+                                st.divider()
 
     # Download Button
     try:
