@@ -1,8 +1,12 @@
+try:
+    from pdf_generator import create_itinerary_pdf
+except ImportError:
+    pass
+
 import os
 import streamlit as st
 from generator import generate_itinerary
 from schemas import ItineraryRequest, BudgetLevel, Interest
-
 
 # Page Config
 st.set_page_config(
@@ -331,9 +335,6 @@ if submit:
 
             st.divider()
             
-            # Download Button
-    from pdf_generator import create_itinerary_pdf
-    pdf_data = create_itinerary_pdf(itinerary)
             st.download_button(
                 label="📄 Download Itinerary (PDF)",
                 data=pdf_data,
