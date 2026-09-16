@@ -9,7 +9,7 @@ def generate_itinerary(request: ItineraryRequest) -> ItineraryResponse:
     You are an expert AI Travel Planner. Create a comprehensive, highly detailed day-by-day itinerary based on these preferences:
     - Destination: {request.destination}
     - Duration: {request.duration_days} days
-    - Budget Level: {request.budget_level.value}
+    - Budget Level: {request.budget.value}
     - Interests: {', '.join([i if isinstance(i, str) else i.value for i in request.interests])}
     - Travelers: {request.travelers_count}
     - Must-see locations: {', '.join(request.must_see_spots) if request.must_see_spots else 'None'}
