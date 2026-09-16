@@ -68,4 +68,4 @@ def create_itinerary_pdf(itinerary: ItineraryResponse) -> bytes:
 
         pdf.ln(4)
 
-   return pdf.output()
+  return pdf.output(dest='S').encode('latin1')
