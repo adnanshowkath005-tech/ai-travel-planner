@@ -37,7 +37,7 @@ def clean_text(text: str) -> str:
     # Ensure all remaining string characters fall within latin-1 range
     return text.encode('latin-1', 'replace').decode('latin-1')
 
-def create_itinerary_pdf(itinerary: ItineraryResponse) -> bytes:
+def create_itinerary_pdf(itinerary):
     pdf = ItineraryPDF()
     pdf.add_page()
     pdf.set_auto_page_break(auto=True, margin=15)
