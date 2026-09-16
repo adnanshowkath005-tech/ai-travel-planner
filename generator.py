@@ -1,12 +1,8 @@
-import streamlit as st
 from google import genai
 from google.genai import types
 from schemas import ItineraryRequest, ItineraryResponse
 
-client = genai.Client(
-    api_key=st.secrets["GEMINI_API_KEY"]
-)
-
+client = genai.Client()
 def generate_itinerary(request: ItineraryRequest) -> ItineraryResponse:
     prompt = f"""
     You are an expert AI Travel Planner. Create a comprehensive, highly detailed day-by-day itinerary based on these preferences:
