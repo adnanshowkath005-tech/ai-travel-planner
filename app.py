@@ -100,3 +100,4 @@ if "itinerary" in st.session_state:
         file_name=f"{destination.lower().replace(' ', '_')}_itinerary.pdf",
         mime="application/pdf"
     )
+    
