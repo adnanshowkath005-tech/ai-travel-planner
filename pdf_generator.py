@@ -68,4 +68,4 @@ def create_itinerary_pdf(itinerary):
 
         pdf.ln(4)
 
-  return pdf.output(dest='S').encode('latin1')
+      return pdf.output(dest='S').encode('latin1')
