@@ -2,7 +2,6 @@ import os
 import streamlit as st
 from generator import generate_itinerary
 from schemas import ItineraryRequest, BudgetLevel
-from pdf_generator import create_itinerary_pdf
 
 st.set_page_config(
     page_title="AI Travel Planner",
